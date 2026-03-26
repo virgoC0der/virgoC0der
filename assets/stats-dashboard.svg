@@ -1,0 +1,318 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <style>
+    @keyframes cursorBlink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
+    @keyframes livePulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+    @keyframes greenDotPulse { 0%,100%{opacity:0.3} 50%{opacity:0.8} }
+    @keyframes shimmer { 0%{stop-color:#D97757} 50%{stop-color:#E8A87C} 100%{stop-color:#D97757} }
+
+    /* Boot sequence: 8s cycle, lines stagger in and hold */
+    @keyframes boot1 {
+      0%{opacity:0} 5%{opacity:0} 10%{opacity:1} 100%{opacity:1}
+    }
+    @keyframes boot2 {
+      0%{opacity:0} 15%{opacity:0} 20%{opacity:1} 100%{opacity:1}
+    }
+    @keyframes boot3 {
+      0%{opacity:0} 25%{opacity:0} 30%{opacity:1} 100%{opacity:1}
+    }
+
+    /* Commit bar fill */
+    @keyframes barFill { 0%{width:0} 100%{width:142px} }
+
+    /* Flame pulse */
+    @keyframes flamePulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.15)} }
+
+    /* Language bar fills */
+    @keyframes langBar1 { 0%{width:0} 100%{width:120px} }
+    @keyframes langBar2 { 0%{width:0} 100%{width:37px} }
+    @keyframes langBar3 { 0%{width:0} 100%{width:18px} }
+    @keyframes langBar4 { 0%{width:0} 100%{width:9px} }
+
+    /* Log line cycle — 24s total, 3s each × 8 lines */
+    @keyframes line1 {
+      0%,1%{opacity:0} 3%,10%{opacity:0.9} 12%,100%{opacity:0}
+    }
+    @keyframes line2 {
+      0%,13%{opacity:0} 15%,22%{opacity:0.9} 24%,100%{opacity:0}
+    }
+    @keyframes line3 {
+      0%,25.5%{opacity:0} 27.5%,35%{opacity:0.9} 37%,100%{opacity:0}
+    }
+    @keyframes line4 {
+      0%,38%{opacity:0} 40%,47%{opacity:0.9} 49%,100%{opacity:0}
+    }
+    @keyframes line5 {
+      0%,50.5%{opacity:0} 52.5%,60%{opacity:0.9} 62%,100%{opacity:0}
+    }
+    @keyframes line6 {
+      0%,63%{opacity:0} 65%,72%{opacity:0.9} 74%,100%{opacity:0}
+    }
+    @keyframes line7 {
+      0%,75.5%{opacity:0} 77.5%,85%{opacity:0.9} 87%,100%{opacity:0}
+    }
+    @keyframes line8 {
+      0%,88%{opacity:0} 90%,97%{opacity:0.9} 99%,100%{opacity:0}
+    }
+
+    /* Streaming lines */
+    @keyframes streamIn1 { 0%{width:0;opacity:0} 10%{opacity:0.4} 40%{width:260px;opacity:0.3} 60%{width:260px;opacity:0.15} 100%{width:0;opacity:0} }
+    @keyframes streamIn2 { 0%{width:0;opacity:0} 15%{opacity:0.35} 45%{width:200px;opacity:0.25} 65%{width:200px;opacity:0.1} 100%{width:0;opacity:0} }
+    @keyframes streamIn3 { 0%{width:0;opacity:0} 20%{opacity:0.3} 50%{width:150px;opacity:0.2} 70%{width:150px;opacity:0.08} 100%{width:0;opacity:0} }
+
+    .bg { fill: #1A1A1A; }
+    .header-text { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 13px; fill: #D97757; font-weight: 600; }
+    .boot-text { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 11px; fill: #6B5D4F; opacity: 0; }
+    .boot-ok { fill: #28C840; }
+    .b1 { animation: boot1 8s ease-out forwards; }
+    .b2 { animation: boot2 8s ease-out forwards; }
+    .b3 { animation: boot3 8s ease-out forwards; }
+    .gauge-header { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 10px; fill: #D97757; font-weight: bold; letter-spacing: 2px; }
+    .gauge-number { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 28px; fill: #D4A574; font-weight: bold; }
+    .gauge-sub { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 10px; fill: #6B5D4F; }
+    .gauge-ascii { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 9px; }
+    .lang-label { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 9px; fill: #C9C2B7; }
+    .log-line { opacity: 0; }
+    .l1 { animation: line1 24s ease-in-out infinite; }
+    .l2 { animation: line2 24s ease-in-out infinite; }
+    .l3 { animation: line3 24s ease-in-out infinite; }
+    .l4 { animation: line4 24s ease-in-out infinite; }
+    .l5 { animation: line5 24s ease-in-out infinite; }
+    .l6 { animation: line6 24s ease-in-out infinite; }
+    .l7 { animation: line7 24s ease-in-out infinite; }
+    .l8 { animation: line8 24s ease-in-out infinite; }
+    .log-time { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 11px; fill: #6B5D4F; }
+    .log-msg { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 11px; fill: #C9C2B7; }
+    .log-tag { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 9px; }
+    .cursor { fill: #D97757; animation: cursorBlink 1s step-end infinite; }
+    .stream-line { fill: #D4A574; rx: 1.5; height: 2.5; }
+    .s1 { animation: streamIn1 3.5s ease-out infinite; }
+    .s2 { animation: streamIn2 3.5s ease-out 0.4s infinite; }
+    .s3 { animation: streamIn3 3.5s ease-out 0.8s infinite; }
+    .border-line { fill: #3D2E22; }
+    .sparkle { fill: #D97757; }
+    .dim { fill: #4A3F35; }
+    .live-text { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 11px; fill: #28C840; font-weight: bold; animation: livePulse 2s ease-in-out infinite; }
+    .status-bar-text { font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace; font-size: 10px; fill: #4A3F35; }
+  </style>
+
+  <defs>
+    <linearGradient id="topGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D97757;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#D97757;stop-opacity:0.5">
+        <animate attributeName="stop-color" values="#D97757;#E8A87C;#D97757" dur="5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#D97757;stop-opacity:0"/>
+    </linearGradient>
+    <clipPath id="roundClip">
+      <rect width="800" height="520" rx="12"/>
+    </clipPath>
+  </defs>
+
+  <!-- ==================== OUTER FRAME ==================== -->
+  <rect class="bg" width="800" height="520" rx="12" stroke="#3D2E22" stroke-width="1"/>
+  <rect x="0" y="0" width="800" height="2" rx="1" fill="url(#topGlow)" clip-path="url(#roundClip)"/>
+
+  <!-- ==================== ZONE 1: TITLE BAR (0-40) ==================== -->
+  <rect x="0" y="0" width="800" height="40" fill="#1E1E1E" clip-path="url(#roundClip)"/>
+  <rect class="border-line" x="0" y="39" width="800" height="1"/>
+
+  <!-- Window dots -->
+  <circle cx="24" cy="20" r="5" fill="#FF5F57" opacity="0.6"/>
+  <circle cx="44" cy="20" r="5" fill="#FFBD2E" opacity="0.6"/>
+  <circle cx="64" cy="20" r="5" fill="#28C840" opacity="0.6"/>
+
+  <!-- Sparkle icon -->
+  <g transform="translate(88, 9)">
+    <path class="sparkle" d="M11 1.5L13.3 8L20 10.3L13.3 12.7L11 19.2L8.7 12.7L2 10.3L8.7 8Z" transform="scale(0.7)" opacity="0.9">
+      <animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+
+  <!-- Title text -->
+  <text x="112" y="24" class="header-text">sys.diagnostic("virgoC0der")</text>
+
+  <!-- [LIVE] indicator -->
+  <text x="746" y="24" text-anchor="end" class="live-text">[LIVE]</text>
+
+  <!-- ==================== ZONE 2: BOOT SEQUENCE (50-100) ==================== -->
+  <g class="boot-text b1">
+    <text x="30" y="65">
+      <tspan fill="#6B5D4F">&gt; initializing connection to github.com/virgoC0der...</tspan>
+      <tspan fill="#28C840">    [OK]</tspan>
+    </text>
+  </g>
+  <g class="boot-text b2">
+    <text x="30" y="80">
+      <tspan fill="#6B5D4F">&gt; scanning commit history...</tspan>
+      <tspan fill="#28C840">                              [OK]</tspan>
+    </text>
+  </g>
+  <g class="boot-text b3">
+    <text x="30" y="95">
+      <tspan fill="#6B5D4F">&gt; loading performance metrics...</tspan>
+      <tspan fill="#28C840">                          [OK]</tspan>
+    </text>
+  </g>
+
+  <!-- ==================== ZONE 3: GAUGES ROW (110-260) ==================== -->
+
+  <!-- Gauge A: COMMITS -->
+  <rect x="25" y="110" width="230" height="140" rx="8" fill="#1E1E1E" stroke="#3D2E22" stroke-width="0.5"/>
+  <text x="45" y="135" class="gauge-header">COMMITS</text>
+  <!-- Bar background -->
+  <rect x="45" y="148" width="190" height="8" rx="4" fill="#2A2018"/>
+  <!-- Bar fill (animated) -->
+  <rect x="45" y="148" width="0" height="8" rx="4" fill="#D97757">
+    <animate attributeName="width" from="0" to="142" dur="2s" fill="freeze" calcMode="spline" keySplines="0 0 0.2 1"/>
+  </rect>
+  <!-- ASCII bar -->
+  <text x="45" y="172" class="gauge-ascii">
+    <tspan fill="#D97757">██████████████</tspan><tspan fill="#3D2E22">░░░░░░</tspan>
+  </text>
+  <!-- Big number -->
+  <text x="45" y="210" class="gauge-number">1.2K+</text>
+  <!-- Subtext -->
+  <text x="45" y="228" class="gauge-sub">all time</text>
+
+  <!-- Gauge B: STREAK -->
+  <rect x="275" y="110" width="230" height="140" rx="8" fill="#1E1E1E" stroke="#3D2E22" stroke-width="0.5"/>
+  <text x="295" y="135" class="gauge-header">STREAK</text>
+  <!-- Flame icon -->
+  <g transform="translate(370, 145)" style="transform-origin: 370px 170px;">
+    <path d="M12 0C12 0 6 8 6 14C6 17.5 8.5 20 12 20C15.5 20 18 17.5 18 14C18 8 12 0 12 0Z M10 15C10 13 12 10 12 10C12 10 14 13 14 15C14 16.1 13.1 17 12 17C10.9 17 10 16.1 10 15Z" fill="#D97757">
+      <animateTransform attributeName="transform" type="scale" values="1;1.15;1" dur="2s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  <!-- Big number -->
+  <text x="295" y="210" class="gauge-number">███ days</text>
+  <!-- Subtext -->
+  <text x="295" y="228" class="gauge-sub">current streak</text>
+
+  <!-- Gauge C: LANGUAGES -->
+  <rect x="525" y="110" width="230" height="140" rx="8" fill="#1E1E1E" stroke="#3D2E22" stroke-width="0.5"/>
+  <text x="545" y="135" class="gauge-header">LANGUAGES</text>
+  <!-- Go bar -->
+  <rect x="545" y="148" width="0" height="6" rx="3" fill="#00ADD8">
+    <animate attributeName="width" from="0" to="120" dur="1.5s" fill="freeze" calcMode="spline" keySplines="0 0 0.2 1"/>
+  </rect>
+  <text x="670" y="154" class="lang-label">Go</text>
+  <!-- Python bar -->
+  <rect x="545" y="162" width="0" height="6" rx="3" fill="#3776AB">
+    <animate attributeName="width" from="0" to="37" dur="1.5s" fill="freeze" begin="0.2s" calcMode="spline" keySplines="0 0 0.2 1"/>
+  </rect>
+  <text x="587" y="168" class="lang-label">Python</text>
+  <!-- Swift bar -->
+  <rect x="545" y="176" width="0" height="6" rx="3" fill="#FA7343">
+    <animate attributeName="width" from="0" to="18" dur="1.5s" fill="freeze" begin="0.4s" calcMode="spline" keySplines="0 0 0.2 1"/>
+  </rect>
+  <text x="568" y="182" class="lang-label">Swift</text>
+  <!-- Other bar -->
+  <rect x="545" y="190" width="0" height="6" rx="3" fill="#6B5D4F">
+    <animate attributeName="width" from="0" to="9" dur="1.5s" fill="freeze" begin="0.6s" calcMode="spline" keySplines="0 0 0.2 1"/>
+  </rect>
+  <text x="559" y="196" class="lang-label">Other</text>
+
+  <!-- ==================== ZONE 4: STATUS FEED (270-460) ==================== -->
+
+  <!-- Vertical accent line -->
+  <rect x="35" y="270" width="2" height="190" rx="1" fill="#D97757" opacity="0.15"/>
+
+  <!-- Log line 1 -->
+  <g class="log-line l1">
+    <text x="50" y="290" class="log-time">[03:14:07]</text>
+    <circle cx="135" cy="286" r="3" fill="#28C840"/>
+    <text x="148" y="290" class="log-msg">pushed 3 commits to main</text>
+    <text x="720" y="290" class="log-tag" fill="#28C840" text-anchor="end">■ active</text>
+  </g>
+
+  <!-- Log line 2 -->
+  <g class="log-line l2">
+    <text x="50" y="290" class="log-time">[03:14:12]</text>
+    <circle cx="135" cy="286" r="3" fill="#28C840"/>
+    <text x="148" y="290" class="log-msg">PR #42 merged: fix distributed lock race</text>
+    <text x="720" y="290" class="log-tag" fill="#28C840" text-anchor="end">■ merged</text>
+  </g>
+
+  <!-- Log line 3 -->
+  <g class="log-line l3">
+    <text x="50" y="290" class="log-time">[03:15:01]</text>
+    <circle cx="135" cy="286" r="3" fill="#D97757"/>
+    <text x="148" y="290" class="log-msg">new star on spanner-toolkit</text>
+    <text x="720" y="290" class="log-tag" fill="#D97757" text-anchor="end">★ +1</text>
+  </g>
+
+  <!-- Log line 4 -->
+  <g class="log-line l4">
+    <text x="50" y="290" class="log-time">[03:15:33]</text>
+    <circle cx="135" cy="286" r="3" fill="#28C840"/>
+    <text x="148" y="290" class="log-msg">CI pipeline passed (47s)</text>
+    <text x="720" y="290" class="log-tag" fill="#28C840" text-anchor="end">✓ green</text>
+  </g>
+
+  <!-- Log line 5 -->
+  <g class="log-line l5">
+    <text x="50" y="290" class="log-time">[03:16:02]</text>
+    <circle cx="135" cy="286" r="3" fill="#D97757"/>
+    <text x="148" y="290" class="log-msg">code review requested: agent-framework</text>
+    <text x="720" y="290" class="log-tag" fill="#D97757" text-anchor="end">◆ pending</text>
+  </g>
+
+  <!-- Log line 6 -->
+  <g class="log-line l6">
+    <text x="50" y="290" class="log-time">[03:16:44]</text>
+    <circle cx="135" cy="286" r="3" fill="#28C840"/>
+    <text x="148" y="290" class="log-msg">deployed v2.3.1 to production</text>
+    <text x="720" y="290" class="log-tag" fill="#28C840" text-anchor="end">▲ shipped</text>
+  </g>
+
+  <!-- Log line 7 -->
+  <g class="log-line l7">
+    <text x="50" y="290" class="log-time">[03:17:10]</text>
+    <circle cx="135" cy="286" r="3" fill="#28C840"/>
+    <text x="148" y="290" class="log-msg">issue closed: memory leak in worker pool</text>
+    <text x="720" y="290" class="log-tag" fill="#28C840" text-anchor="end">✓ resolved</text>
+  </g>
+
+  <!-- Log line 8 -->
+  <g class="log-line l8">
+    <text x="50" y="290" class="log-time">[03:17:55]</text>
+    <circle cx="135" cy="286" r="3" fill="#D97757"/>
+    <text x="148" y="290" class="log-msg">streak extended: 47 consecutive days</text>
+    <text x="720" y="290" class="log-tag" fill="#D97757" text-anchor="end">★ on fire</text>
+  </g>
+
+  <!-- Streaming placeholder lines -->
+  <g transform="translate(50, 310)">
+    <rect class="stream-line s1" y="0" width="0" height="2.5"/>
+    <rect class="stream-line s2" y="14" width="0" height="2.5"/>
+    <rect class="stream-line s3" y="28" width="0" height="2.5"/>
+  </g>
+
+  <!-- Faded previous log effect -->
+  <g opacity="0.10">
+    <rect x="50" y="360" width="280" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="374" width="200" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="388" width="240" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="402" width="160" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="416" width="220" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="430" width="180" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="444" width="250" height="2" rx="1" fill="#C9C2B7"/>
+    <rect x="50" y="458" width="140" height="2" rx="1" fill="#C9C2B7"/>
+  </g>
+
+  <!-- Blinking cursor -->
+  <rect class="cursor" x="50" y="472" width="8" height="2" rx="1"/>
+
+  <!-- ==================== ZONE 5: BOTTOM STATUS BAR (500-520) ==================== -->
+  <rect class="border-line" x="0" y="499" width="800" height="1"/>
+  <rect x="0" y="500" width="800" height="20" fill="#1E1E1E" clip-path="url(#roundClip)"/>
+
+  <!-- Green pulsing dot -->
+  <circle cx="24" cy="512" r="3" fill="#28C840">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3s" repeatCount="indefinite"/>
+  </circle>
+
+  <text x="35" y="515" class="status-bar-text">github.com/virgoC0der — all systems nominal</text>
+  <text x="776" y="515" text-anchor="end" class="status-bar-text">↑ 99.9% uptime</text>
+
+</svg>
