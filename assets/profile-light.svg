@@ -1,0 +1,55 @@
+<svg width="840" height="672" viewBox="0 0 840 672" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="&#39;JetBrains Mono&#39;, ui-monospace, SFMono-Regular, Menlo, monospace">
+  <rect x="0.75" y="0.75" width="838.5" height="670.5" rx="16" fill="#FAF9F5" stroke="#ECE8DE" stroke-width="1.5"></rect>
+
+  
+  <rect x="48" y="44" width="52" height="52" rx="11" fill="#FFFFFF" stroke="#ECE8DE"></rect>
+  <text x="74" y="71" text-anchor="middle" font-size="20" font-weight="600" fill="#C2603C">&gt;_</text>
+  <text x="116" y="64" font-size="13" fill="#C2603C">~/virgoC0der</text>
+  <text x="116" y="93" font-size="22" font-weight="700" fill="#232220" letter-spacing="0.5">BillyKing</text>
+  <text x="792" y="62" text-anchor="end" font-size="11.5" fill="#A19B8F">AfterShip</text>
+  <text x="792" y="80" text-anchor="end" font-size="11.5" fill="#A19B8F">Shenzhen, CN</text>
+
+  
+  <text x="48" y="150" font-size="12" fill="#A19B8F">// backend · harness · agents</text>
+  <text x="48" y="182" font-size="15.5" fill="#42403A" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, sans-serif">Building scalable backend systems by day, hacking on AI agents</text>
+  <text x="48" y="206" font-size="15.5" fill="#42403A" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, &#39;Helvetica Neue&#39;, sans-serif">by night. Currently exploring where LLMs meet devtools.</text>
+
+  
+  <text x="48" y="252" font-size="12" fill="#C2603C">$ stack --list</text>
+  <text x="48" y="282" font-size="13" fill="#A19B8F">languages</text>
+  <text x="140" y="282" font-size="13" fill="#36332E">Go · Python · Swift · TypeScript</text>
+  <text x="48" y="310" font-size="13" fill="#A19B8F">data</text>
+  <text x="140" y="310" font-size="13" fill="#36332E">Spanner · PostgreSQL · Redis · MongoDB</text>
+  <text x="48" y="338" font-size="13" fill="#A19B8F">cloud</text>
+  <text x="140" y="338" font-size="13" fill="#36332E">GCP · Alibaba Cloud</text>
+  <text x="48" y="366" font-size="13" fill="#A19B8F">infra</text>
+  <text x="140" y="366" font-size="13" fill="#36332E">Kubernetes · Docker</text>
+
+  
+  <text x="48" y="414" font-size="12" fill="#C2603C">$ ls ./work</text>
+
+  <rect x="48" y="432" width="366" height="64" rx="10" fill="#FFFFFF" stroke="#ECE8DE"></rect>
+  <text x="66" y="461" font-size="13.5" font-weight="600" fill="#232220">go-mcp</text>
+  <text x="398" y="461" text-anchor="end" font-size="11" fill="#A19B8F">Go</text>
+  <text x="66" y="481" font-size="12.5" fill="#7C776D" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif">Build your own MCP servers in Go</text>
+
+  <rect x="426" y="432" width="366" height="64" rx="10" fill="#FFFFFF" stroke="#ECE8DE"></rect>
+  <text x="444" y="461" font-size="13.5" font-weight="600" fill="#232220">awesome-claude-code</text>
+  <text x="776" y="461" text-anchor="end" font-size="11" fill="#A19B8F">Py</text>
+  <text x="444" y="481" font-size="12.5" fill="#7C776D" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif">Slash commands &amp; hooks for Claude Code</text>
+
+  <rect x="48" y="508" width="366" height="64" rx="10" fill="#FFFFFF" stroke="#ECE8DE"></rect>
+  <text x="66" y="537" font-size="13.5" font-weight="600" fill="#232220">omnichannel-harness</text>
+  <text x="398" y="537" text-anchor="end" font-size="11" fill="#A19B8F">Py</text>
+  <text x="66" y="557" font-size="12.5" fill="#7C776D" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif">Multi-agent harnesses for eng &amp; product</text>
+
+  <rect x="426" y="508" width="366" height="64" rx="10" fill="#FFFFFF" stroke="#ECE8DE"></rect>
+  <text x="444" y="537" font-size="13.5" font-weight="600" fill="#232220">SentimentAnalysis</text>
+  <text x="776" y="537" text-anchor="end" font-size="11" fill="#C2603C">★ 230</text>
+  <text x="444" y="557" font-size="12.5" fill="#7C776D" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, sans-serif">ML product-review sentiment analysis</text>
+
+  
+  <line x1="48" y1="606" x2="792" y2="606" stroke="#ECE8DE"></line>
+  <text x="48" y="638" font-size="12" fill="#9A958B">simple &gt; clever · reliable &gt; fast · boring &gt; shiny</text>
+  <text x="792" y="638" text-anchor="end" font-size="12" fill="#C2603C">billychen826@gmail.com</text>
+</svg>
